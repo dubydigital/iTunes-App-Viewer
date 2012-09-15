@@ -78,6 +78,17 @@
        [[UIApplication sharedApplication] delegate] viewController]
       mainTabViewController]
      saveSelectedApp];
+    
+    
+    
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"Save App"
+                              message:@"This App will be added to your 'Saved App' Tab Section."
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+    [alertView release];
 }
 -(void)emailHandler{
     if ([MFMailComposeViewController canSendMail]) {
