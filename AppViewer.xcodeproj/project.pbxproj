@@ -34,6 +34,8 @@
 		CB00F54116017A8A004483BC /* DetailPlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = CB00F54016017A8A004483BC /* DetailPlaceHolder.png */; };
 		CB44CC7C15FD874F00586724 /* AppViewerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44CC7B15FD874F00586724 /* AppViewerModel.m */; };
 		CB44CC8B15FD946400586724 /* AppObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CB44CC8A15FD946400586724 /* AppObject.m */; };
+		CBD6416B160411AF0074E13A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD6416A160411AF0074E13A /* libxml2.dylib */; };
+		CBD64173160421B00074E13A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD64172160421B00074E13A /* Twitter.framework */; };
 		CBF8344815FD65FE009A3A28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF8344715FD65FE009A3A28 /* UIKit.framework */; };
 		CBF8344A15FD65FE009A3A28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF8344915FD65FE009A3A28 /* Foundation.framework */; };
 		CBF8344C15FD65FE009A3A28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF8344B15FD65FE009A3A28 /* CoreGraphics.framework */; };
@@ -100,6 +102,9 @@
 		CB44CC7B15FD874F00586724 /* AppViewerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppViewerModel.m; path = appClasses/model/AppViewerModel.m; sourceTree = "<group>"; };
 		CB44CC8915FD946400586724 /* AppObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppObject.h; path = appClasses/model/AppObject.h; sourceTree = "<group>"; };
 		CB44CC8A15FD946400586724 /* AppObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppObject.m; path = appClasses/model/AppObject.m; sourceTree = "<group>"; };
+		CBD6416A160411AF0074E13A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		CBD64172160421B00074E13A /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		CBD64175160423D60074E13A /* MainViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewControllerDelegate.h; path = appClasses/appViewerDelegate/MainViewControllerDelegate.h; sourceTree = "<group>"; };
 		CBF8344315FD65FE009A3A28 /* AppViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF8344715FD65FE009A3A28 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CBF8344915FD65FE009A3A28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBD64173160421B00074E13A /* Twitter.framework in Frameworks */,
+				CBD6416B160411AF0074E13A /* libxml2.dylib in Frameworks */,
 				3C83814615FFEE5A00A17CEE /* MessageUI.framework in Frameworks */,
 				3C8380EB15FEA27E00A17CEE /* CoreData.framework in Frameworks */,
 				CBF8344815FD65FE009A3A28 /* UIKit.framework in Frameworks */,
@@ -264,10 +271,17 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
+		CBD64174160423860074E13A /* AppViewerDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				CBD64175160423D60074E13A /* MainViewControllerDelegate.h */,
+			);
+			name = AppViewerDelegates;
+			sourceTree = "<group>";
+		};
 		CBF8343815FD65FE009A3A28 = {
 			isa = PBXGroup;
 			children = (
-				3C83814515FFEE5900A17CEE /* MessageUI.framework */,
 				CBF8344D15FD65FE009A3A28 /* AppViewer */,
 				3C8380EC15FEA3BB00A17CEE /* AppModel.xcdatamodeld */,
 				3C8380CD15FE4F4000A17CEE /* Resources */,
@@ -287,6 +301,9 @@
 		CBF8344615FD65FE009A3A28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBD64172160421B00074E13A /* Twitter.framework */,
+				CBD6416A160411AF0074E13A /* libxml2.dylib */,
+				3C83814515FFEE5900A17CEE /* MessageUI.framework */,
 				3C8380EA15FEA27E00A17CEE /* CoreData.framework */,
 				CBF8344715FD65FE009A3A28 /* UIKit.framework */,
 				CBF8344915FD65FE009A3A28 /* Foundation.framework */,
@@ -305,6 +322,7 @@
 				CBF8346A15FD668C009A3A28 /* appClasses */,
 				CBF8345C15FD65FE009A3A28 /* DDViewController_iPhone.xib */,
 				CBF8345F15FD65FE009A3A28 /* DDViewController_iPad.xib */,
+				3C83811015FF9F8B00A17CEE /* libs */,
 				CBF8344E15FD65FE009A3A28 /* Supporting Files */,
 			);
 			path = AppViewer;
@@ -325,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				3C332A7D15FE388600407D67 /* Constants.h */,
-				3C83811015FF9F8B00A17CEE /* libs */,
+				CBD64174160423860074E13A /* AppViewerDelegates */,
 				CB44CC8515FD898B00586724 /* utils */,
 				CB44CC7315FD857800586724 /* model */,
 				CBF8346B15FD6697009A3A28 /* viewControllers */,
@@ -498,6 +516,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "19C136F0-184C-4CD9-B509-225838C7CDB4";
 				SDKROOT = iphoneos;
@@ -517,6 +536,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -532,6 +552,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppViewer/AppViewer-Prefix.pch";
 				INFOPLIST_FILE = "AppViewer/AppViewer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AppViewer/libs/Twitter+OAuth/Libraries & Headers\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "19C136F0-184C-4CD9-B509-225838C7CDB4";
 				WRAPPER_EXTENSION = app;
@@ -544,6 +568,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppViewer/AppViewer-Prefix.pch";
 				INFOPLIST_FILE = "AppViewer/AppViewer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AppViewer/libs/Twitter+OAuth/Libraries & Headers\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -143,11 +143,47 @@
 }
 
 //---------------------------------------
-#pragma mark MAIL Methods
+#pragma mark MainViewControllerDelegate Methods
 //---------------------------------------
+// SAVE APP
+-(void)saveSelectedApp{
+    [CoreDataUtil saveAppToFavorites:[[AppViewerModel sharedInstance] currentAppInPlay] ];
+}
+
+//LAUNCH Twitter
+- (void)launchTwitter {
+    {
+        if ([TWTweetComposeViewController canSendTweet])
+        {
+            
+            NSString *tweetMessage =[NSString stringWithFormat:@"I would like to tweet this app: %@",[[AppViewerModel sharedInstance] currentAppInPlay].title ];
+            
+            TWTweetComposeViewController *tweetSheet =
+            [[TWTweetComposeViewController alloc] init];
+            [tweetSheet setInitialText:tweetMessage];
+            
+             [tweetSheet addImage: [[AppViewerModel sharedInstance] currentAppInPlay].thumbImage];
+            
+            [self presentModalViewController:tweetSheet animated:YES];
+            
+            [tweetSheet release];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"Opps, no Twitter Set up"
+                                      message:@"You need to set up your Twitter Account in your device Settings, in order to Tweet."
+                                      delegate:self
+                                      cancelButtonTitle:@"OK"                                                   
+                                      otherButtonTitles:nil];
+            [alertView show];
+            [alertView release];
+        }
+    }
+}
+
+// MAIL Methods
 -(void)launchEmail{
-    
-    
     NSString *subjectString = [NSString stringWithFormat:@"Check This App out: %@",[[AppViewerModel sharedInstance] currentAppInPlay].title];
     NSString *messageStrig =[NSString stringWithFormat:@"Check Out %@, here is the link: %@  ,cheers!",[[AppViewerModel sharedInstance] currentAppInPlay].title, [[AppViewerModel sharedInstance] currentAppInPlay].linkURLString];
     

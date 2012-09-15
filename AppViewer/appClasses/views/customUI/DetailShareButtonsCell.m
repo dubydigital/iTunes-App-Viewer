@@ -8,6 +8,8 @@
 
 #import "DetailShareButtonsCell.h"
 #import "AppViewerModel.h"
+#import "DDAppDelegate.h"// use for typeCast
+#import "DDViewController.h" //use for typeCast
 
 @implementation DetailShareButtonsCell
 @synthesize appObject = _appObject;
@@ -70,12 +72,16 @@
 
 
 -(void)saveHandler{
-    // CORE DATA TEST
-    [CoreDataUtil saveAppToFavorites:[[AppViewerModel sharedInstance] currentAppInPlay] ];
+    // Access Delegate Method 
+    [[(DDViewController*)
+      [(DDAppDelegate*)
+       [[UIApplication sharedApplication] delegate] viewController]
+      mainTabViewController]
+     saveSelectedApp];
 }
 -(void)emailHandler{
     if ([MFMailComposeViewController canSendMail]) {
-        // Show the composer
+        // Show the composer *via Notification
         [[NSNotificationCenter defaultCenter] postNotificationName:EMAIL_LAUNCHED_NOTIFICATION object:nil];
     } else {
         // Handle the error
@@ -83,7 +89,11 @@
 }
 
 -(void)twitterHandler{
-    
+    [[(DDViewController*)
+      [(DDAppDelegate*)
+       [[UIApplication sharedApplication] delegate] viewController]
+      mainTabViewController]
+     launchTwitter];
 }
 
 

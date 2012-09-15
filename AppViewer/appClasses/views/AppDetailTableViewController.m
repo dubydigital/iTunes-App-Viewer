@@ -34,6 +34,7 @@
         
         // HIDE TABEL SEPARATOR
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+       
         
         // DEFAULT IMAGE
         self.appImage = [UIImage imageNamed:@"DetailPlaceHolder.png"];
@@ -140,7 +141,7 @@
         CGSize labelSize;
         [label sizeToFit];
         labelSize = label.frame.size;
-        //NSLog(@"label size after resizing: %f, %f ", labelSize.width, labelSize.height);
+        NSLog(@"lable size %0.2f, %0.2f ", labelSize.width, labelSize.height);
         
         rowHeight = label.frame.size.height;
         [label release];
@@ -179,12 +180,19 @@
     imgTitleCell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     imgTitleCell.textLabel.numberOfLines = 0;
     imgTitleCell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    // NO SELECTION STYLE
+    imgTitleCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
     //
     detailCell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     detailCell.textLabel.numberOfLines = 0;
     detailCell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:12.0];
     detailCell.textLabel.backgroundColor = [UIColor clearColor];
     [detailCell.contentView setBackgroundColor:[UIColor colorWithRed:.5 green:.5 blue:.5 alpha:.2]];
+    
+    // NO SELECTION STYLE
+    detailCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     switch (indexPath.row) {
         case DetailRowImageAndTitle:
@@ -195,6 +203,9 @@
             break;
         case DetailRowShare:
             [shareButtonsCell.contentView setBackgroundColor:[UIColor colorWithRed:.5 green:.5 blue:.5 alpha:.5]];
+            shareButtonsCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            
             return shareButtonsCell;
             
             break;

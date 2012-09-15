@@ -47,8 +47,12 @@
     
     UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(0,0, self.view.bounds.size.width, 100)];
     [labelView setTextAlignment:UITextAlignmentCenter];
-    [labelView setBackgroundColor:[UIColor greenColor]];
-    [labelView setText:@"Sipe Table Cells Left to delete"];
+    [labelView setBackgroundColor:[UIColor orangeColor]];
+    
+    [labelView setLineBreakMode:UILineBreakModeCharacterWrap];
+    [labelView setNumberOfLines:0];
+    
+    [labelView setText:@"Your saved apps will be viewed here, \nSwipe Table Cells Left to delete"];
     [labelView setAutoresizingMask: UIViewAutoresizingFlexibleWidth];
     
     [headerView addSubview:labelView];
@@ -95,6 +99,22 @@
 //---------------------------------------
 #pragma mark - Table view data source
 //---------------------------------------
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return YES; // ALLOWS FOR SWIPE TO DELETE CELLS
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [CoreDataUtil deleteSavedAppWithId:[(AppObject*)[self.dataSourceArr objectAtIndex:indexPath.row] idString]];
+    NSLog(@"ID: %@",[(AppObject*)[self.dataSourceArr objectAtIndex:indexPath.row] idString]);
+    self.dataSourceArr = [CoreDataUtil getAllSavedApps];
+    [[self tableView] reloadData];
+}
+
+
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
@@ -138,10 +158,7 @@
 //---------------------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [CoreDataUtil deleteSavedAppWithId:[(AppObject*)[self.dataSourceArr objectAtIndex:indexPath.row] idString]];
-    NSLog(@"ID: %@",[(AppObject*)[self.dataSourceArr objectAtIndex:indexPath.row] idString]);
-    self.dataSourceArr = [CoreDataUtil getAllSavedApps];
-    [[self tableView] reloadData];
+
 }
 
 @end

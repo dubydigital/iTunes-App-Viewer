@@ -52,6 +52,7 @@
             NSString *resultsVal = [[NSString alloc] initWithData:data
                                                          encoding:NSUTF8StringEncoding];
             jsonObject = [jsonParser objectWithString:resultsVal error:&parsingErr];
+            [resultsVal release];
             
             if (parsingErr) {
                 NSLog(@":::   ERROR!!!    parsingErr: %@ ", error.description);
@@ -62,6 +63,8 @@
         
         if([jsonObject isKindOfClass:[NSDictionary class]]){
             returnDictionary = jsonObject;
+            
+            
             NSLog(@"jsonObject: is DICTIONARY TYPE");
             //NSLog(@"jsonObject: is DICTIONARY TYPE: %@", jsonObject);
         }else if([jsonObject isKindOfClass:[NSArray class]]) {

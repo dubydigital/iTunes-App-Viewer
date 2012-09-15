@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "AppViewerModel.h"
 
+
 @interface DetailShareButtonsCell : UITableViewCell
 <UIAlertViewDelegate>
 {

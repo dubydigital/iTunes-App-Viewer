@@ -11,11 +11,12 @@
 #import "SavedAppViewController.h"
 #import "FPOViewController.h"
 #import <MessageUI/MFMailComposeViewController.h>
-
+#import <Twitter/Twitter.h>
+#import "MainViewControllerDelegate.h"
 
 
 @interface MainTabViewController : UITabBarController<UITabBarControllerDelegate,
-MFMailComposeViewControllerDelegate>{
+MFMailComposeViewControllerDelegate,MainViewControllerDelegate>{
     UINavigationController *rootNavViewController;
     UINavigationController * appsNavigationController;
     
@@ -31,6 +32,10 @@ MFMailComposeViewControllerDelegate>{
 
 
 -(void)setUpTabViewControllers;
+
+#pragma mark MainViewControllerDelegate Methods
+-(void)saveSelectedApp;
+-(void)launchTwitter;
 -(void)launchEmail;
 
 @end
